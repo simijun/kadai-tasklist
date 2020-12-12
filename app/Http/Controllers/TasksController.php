@@ -40,6 +40,10 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "content" => "required|max:15",
+        ]);
+        
         $task = new Task;
         $task->content = $request->content;
         $task->save();
@@ -82,6 +86,11 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            "contet" => "required|max:15",
+        ]);
+        // デバッグ用関数（変数の中身をブラウザで確認できます）
+        // dd($id, $request->content);
         $task = Task::findOrFail($id);
         
         $task->content = $request->content;
