@@ -42,6 +42,7 @@ class TasksController extends Controller
     {
         $request->validate([
             "status" => "required|max:10",
+            "content" => "required|max:10",
             
         ]);
         
@@ -90,6 +91,7 @@ class TasksController extends Controller
     {
         $request->validate([
             "status" => "required|max:10",
+            "content" => "required|max:10",
             
         ]);
         // デバッグ用関数（変数の中身をブラウザで確認できます）
